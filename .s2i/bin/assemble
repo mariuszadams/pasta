@@ -14,11 +14,11 @@ echo "*** *** ***"
 echo "---> Installing application source"
 #cp -af /tmp/src/. ./
 
+
+cp -Rf /tmp/src/*.html ./
 DATE=`date "+%b %d, %Y @ %H:%M %p"`
 echo "Page built on $DATE" >> ./info.html
 echo "Proudly served by Apache HTTP Server version $HTTPD_VERSION" >> ./info.html
-
-cp -Rf /tmp/src/*.html ./
 echo "*** *** ***"
 echo "*** *** ***"
 echo "*** *** ***"
