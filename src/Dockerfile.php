@@ -1,6 +1,7 @@
-# Use the httpd-parent image as base
-FROM registry.access.redhat.com/rhscl/httpd-24-rhel7
-RUN   yum --disableplugin=subscription-manager -y install iputils skopeo \
+FROM registry.access.redhat.com/ubi8/ubi
+
+RUN   yum --disableplugin=subscription-manager -y install iputils \
+#skopeo \
 # && yum --disableplugin=subscription-manager -y module enable php:7.2 \
 #  && yum --disableplugin=subscription-manager -y install httpd php \
   && yum --disableplugin=subscription-manager -y install httpd \
@@ -17,6 +18,5 @@ EXPOSE 8080
 
 USER 1001
 
-#CMD httpd -D FOREGROUND
-
+CMD httpd -D FOREGROUND
 
