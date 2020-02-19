@@ -1,13 +1,13 @@
 # Use the httpd-parent image as base
 FROM registry.access.redhat.com/rhscl/httpd-24-rhel7
-RUN   yum --disableplugin=subscription-manager -y install iputils \
+#RUN   yum --disableplugin=subscription-manager -y install iputils \
 #skopeo \
 # && yum --disableplugin=subscription-manager -y module enable php:7.2 \
 #  && yum --disableplugin=subscription-manager -y install httpd php \
-  && yum --disableplugin=subscription-manager -y install httpd \
+  RUN yum --disableplugin=subscription-manager -y install httpd \
   && yum --disableplugin=subscription-manager clean all
 
-ADD index.php /var/www/html
+ADD index.html /var/www/html
 
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf \
   && mkdir /run/php-fpm \
